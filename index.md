@@ -1,24 +1,8 @@
 ---
 layout: default
 ---
-{% for file in site.static_files %}
-  {{file}}
-  {{file.path}}
-  {% if file.path contains 'recipe' %}
-      <a href="{{ file.path }}">
-        {{file.path}}
-      </a>
-  {% endif %}
-{% endfor %}
 
-{{site | jsonify }}
 
-{% for file in site.recipes %}
-  {{file}}
-  {{file.path}}
-  {% if file.path contains 'recipe' %}
-      <a href="{{ file.path }}">
-        {{file.path}}
-      </a>
-  {% endif %}
+{% for recipe in site.recipes %}
+  {{recipe | jsonify}}
 {% endfor %}
