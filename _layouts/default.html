@@ -9,9 +9,7 @@
         <body>
                 Files:
                 {% for file in site.static_files %}
-                1
-                        {{file}}
-                        {{file | jsonify}}
+                        <a href="{{ file.path }}" alt="">{{file.basename}}<a>
                 {% endfor %}
                 
         </body>
