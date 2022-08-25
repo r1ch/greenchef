@@ -1,4 +1,4 @@
 ---
-layout:default
+layout: default
 ---
 {{ site.recipes | jsonify }}}
