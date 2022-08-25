@@ -11,12 +11,11 @@ layout: default
         </head>
         <body>
                 Files:
-                {% for file in site.static_file %}
+                {% for file in site.static_files %}
+                1
                         {{file}}
                         {{file | jsonify}}
                 {% endfor %}
                 
-                Site:
-                {{ site | jsonify }}
         </body>
 </html>
