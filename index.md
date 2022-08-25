@@ -2,11 +2,12 @@
 layout: default
 ---
 
-{% for collection in site.collections %}
-    {% if collection.label != 'posts' %}
-        <h2>{{ collection.label }}</h2>
-        {% for item in site[collection.label] %}
-            <br><a href="{{ item.url }}">{{ item.title }}</a>
+{% for file in site.static_files %}
+        <h2>{{ file | jsonify }}</h2>
+                    <a href = '{{file.path}}'>File</a>
+        {% for item in site.static_files[file] %}
+            {{item}}
+            <a href = '{{file.path}}'>{{item}}</a>
         {% endfor %}
     {% endif %}
 {% endfor %}
