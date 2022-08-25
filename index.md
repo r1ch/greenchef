@@ -11,6 +11,8 @@ layout: default
   {% endif %}
 {% endfor %}
 
+{{site | jsonify }}
+
 {% for file in site.recipes %}
   {{file}}
   {{file.path}}
