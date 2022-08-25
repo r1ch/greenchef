@@ -2,7 +2,11 @@
 layout: default
 ---
 
-
-{% for recipe in site.recipes %}
-  {{recipe | jsonify}}
+{% for collection in site.collections %}
+    {% if collection.label != 'posts' %}
+        <h2>{{ collection.label }}</h2>
+        {% for item in site[collection.label] %}
+            <br><a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+    {% endif %}
 {% endfor %}
