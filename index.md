@@ -1,4 +1,4 @@
 ---
 layout: default
 ---
-{{ site.recipes | jsonify }}}
+{{ site.static_file | jsonify }}
