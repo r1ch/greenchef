@@ -1,4 +1,4 @@
 ---
 layout: default
 ---
-{{ site.static_file | jsonify }}
+{{ site.static_files | jsonify }}
