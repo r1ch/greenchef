@@ -9,7 +9,7 @@
         <body>
                 Files:
                 {% for file in site.static_files %}
-                        <a href="{{ file.path }}" alt="">{{file.basename | split: '-' | pop | join: " " }}<a><br>
+                        <a href="{{ file.path }}" alt="">{{file.basename | split: '-' | pop | pop | join: " " }}<a><br>
                 {% endfor %}
                 
         </body>
