@@ -13,7 +13,7 @@
                                 {% if file.path contains 'thumb' %}
                                 <div class="col">
                                         <a href="{{file.path | split : '-' | pop | push: 'main.jpg' | join: '-'}}">
-                                                <div class="card text-white">
+                                                <div class="card text-white bg-dark">
                                                         <img src="{{file.path}}" class="card-img">
                                                         <div class="card-img-overlay">
                                                         <h5 class="card-title">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
