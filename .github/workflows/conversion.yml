@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Dummy run
+        run: find raw/*.pdf -exec sh -c 'echo -sOutputFile="${1%.*}-thumb.png" $1' sh {} \;
+
       - name: Install ghostscript
         run: sudo apt install ghostscript
+      - name: Dummy run2
+        run: gs -dNOPAUSE -dBATCH -sDEVICE=png256 -sOutputFile="p%01d.png" raw/*.pdf
       - name: Convert PDF to PNG
         run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=png256 –dFirstPage=1 –dLastPage=1 -r100x100 -sOutputFile="${1%.*}-thumb.png" $1' sh {} \;
       - name: Move thumbs pages
