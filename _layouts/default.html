@@ -12,11 +12,11 @@
                                 <div class="col-sm-6">
                                 {% for file in site.static_files %}
                                 {% if file.path contains 'thumb' %}
-                                <a href="#" class="btn btn-primary">View Recipe</a>
+                                <a href="{{file.path | split : '-' | pop | push: 'main.jpg' | join '-'}}" class="btn btn-primary">View Recipe</a>
                                 <div class="card bg-dark text-white">
                                         <img src="{{file.path}}" class="card-img" alt="...">
                                         <div class="card-img-overlay">
-                                        <h5 class="card-title">{{file.basename | split: '-' | pop | pop | join: " " }}</h5>
+                                        <h5 class="card-title">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
                                         </div>
                                 </div>
                         </div>
