@@ -1,6 +1,6 @@
 
 
-name: PDF to PNG
+name: PDF to JPG
 
 on:
   workflow_dispatch:
@@ -18,8 +18,9 @@ jobs:
           SRC="rights=${DQT}none${DQT} pattern=${DQT}PDF${DQT}"
           RPL="rights=${DQT}read\|write${DQT} pattern=${DQT}PDF${DQT}"
           sudo sed -i "s/$SRC/$RPL/" /etc/ImageMagick-6/policy.xml
-      - name: Convert PDF to JPG
+      - name: List resources
         run: convert -list resource
+      - name: Convert PDF to JPG
         run: mogrify -format jpg -density 300 -quality 100 raw/*.pdf
       - name: Commit JPG
         id: commit
