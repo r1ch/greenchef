@@ -16,8 +16,6 @@ jobs:
         run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=png256 -sPageList=1 -sOutputFile="${1%.*}-thumb.png" "$1"' sh {} \;
       - name: Move thumbs pages
         run: mv raw/*.png converted
-      - name: Clear old pngs
-        run: rm raw/*.png
       - name: Commit JPG
         id: commit
         run: |
