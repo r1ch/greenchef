@@ -29,6 +29,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add raw/*
           if [-z "$(git status --porcelain)"]; then
+              echo "Nothing to do"
           else
              git commit -m "[bot] updated JPG files"
              git push
