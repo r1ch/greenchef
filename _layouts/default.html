@@ -19,9 +19,9 @@
                                         <h5 class="card-title">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
                                         </div>
                                 </div>
+                                {% endif %}
+                                {% endfor %}
                         </div>
                 </div>
-        {% endif %}
-        {% endfor %}
         </body>
 </html>
