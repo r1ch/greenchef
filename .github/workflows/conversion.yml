@@ -12,22 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install ghostscript
         run: sudo apt install ghostscript
-      - name: Change ImageMagick security policy
-        run: |
-          DQT='"' 
-          SRC="rights=${DQT}none${DQT} pattern=${DQT}PDF${DQT}"
-          RPL="rights=${DQT}read\|write${DQT} pattern=${DQT}PDF${DQT}"
-          sudo sed -i "s/$SRC/$RPL/" /etc/ImageMagick-6/policy.xml
-      - name: List resources
-        run: convert -list resource
-      - name: Convert PDF to JPG
-        run: mogrify -format jpg -density 100 -quality 100 raw/*.pdf
-      - name: Shrink first pages
-        run: mogrify  -format jpg -path converted -thumbnail 100x100 raw/*-0.jpg
-      - name: Move second pages
-        run: mv raw/*-1.jpg converted
-      - name: Clear old jpgs
-        run: rm raw/*.jpg
+      - name: Convert PDF to PNG
+        run: find . -name "raw/*.pdf" -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=png256 –dFirstPage=1 –dLastPage=1 -r100x100 -sOutputFile="${1%.*}-thumb.png" "$1"' sh {} \;
+      - name: Move thumbs pages
+        run: mv raw/*.png converted
+      - name: Clear old pngs
+        run: rm raw/*.png
       - name: Commit JPG
         id: commit
         run: |
