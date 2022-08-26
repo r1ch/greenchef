@@ -15,7 +15,7 @@ jobs:
       - name: Thumbs from PDF to JPG
         run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=1 -r100x100 -sOutputFile="${1%.*}-thumb.jpg" "$1"' sh {} \;
       - name: Main from PDF to JPG
-        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 r600x600 -sOutputFile="${1%.*}-main.jpg" "$1"' sh {} \;
+        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r600x600 -sOutputFile="${1%.*}-main.jpg" "$1"' sh {} \;
       - name: Move JPEGs
         run: mv raw/*.jpg converted
       - name: Commit JPG
