@@ -21,7 +21,13 @@ jobs:
       - name: List resources
         run: convert -list resource
       - name: Convert PDF to JPG
-        run: mogrify -format jpg -density 300 -quality 100 raw/*.pdf
+        run: mogrify -format jpg -density 100 -quality 100 raw/*.pdf
+      - name: Shrink first pages
+        run: mogrify  -format jpg -path converted -thumbnail 100x100 raw/*-0.jpg
+      - name: Move second pages
+        run: mv raw/*-1.jpg converted
+      - name: Clear old jpgs
+        run: rm raw/*.jpg
       - name: Commit JPG
         id: commit
         run: |
