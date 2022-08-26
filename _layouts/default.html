@@ -12,8 +12,8 @@
                                 <div class="col-sm-6">
                                 {% for file in site.static_files %}
                                 {% if file.path contains 'thumb' %}
-                                <a href="{{file.path | split : '-' | pop | push: 'main.jpg' | join '-'}}">
-                                        <div class="card bg-dark text-white">
+                                <a href="{{file.path | split : '-' | pop | push: 'main.jpg' | join: '-'}}">
+                                        <div class="card text-dark">
                                                 <img src="{{file.path}}" class="card-img" alt="...">
                                                 <div class="card-img-overlay">
                                                 <h5 class="card-title">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
