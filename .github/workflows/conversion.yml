@@ -12,10 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install ghostscript
         run: sudo apt install ghostscript
-      - name: Convert PDF to PNG
-        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=png256 -sPageList=1 -sOutputFile="${1%.*}-thumb.png" "$1"' sh {} \;
-      - name: Move thumbs pages
-        run: mv raw/*.png converted
+      - name: Thumbs from PDF to JPG
+        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=1 -r100x100 -sOutputFile="${1%.*}-thumb.jpg" "$1"' sh {} \;
+      - name: Main from PDF to JPG
+        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=1 -sOutputFile="${1%.*}-main.jpg" "$1"' sh {} \;
+      - name: Move JPEGs
+        run: mv raw/*.jpg converted
       - name: Commit JPG
         id: commit
         run: |
