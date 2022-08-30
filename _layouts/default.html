@@ -16,7 +16,8 @@
                                                 <div class="card">
                                                         <img src="{{file.path}}" class="card-img">
                                                         <div class="card-img-overlay">
-                                                        <h5 class="card-title text-center text-white bg-dark">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
+                                                                <h5 class="card-title text-center text-white bg-dark">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
+                                                                <p class="card-text"><span class="badge bg-primary">{{site.data.recipes[file.basename].time}}</span></p>
                                                         </div>
                                                 </div><!-- end of card -->
                                         </a>
