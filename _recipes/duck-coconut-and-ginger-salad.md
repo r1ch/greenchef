@@ -1,6 +1,6 @@
 ---
 title: Duck, coconut and ginger salad
-slug: duck,-coconut-and-ginger-salad
+slug: duck-coconut-and-ginger-salad
 time: 25-30
 ingredients:
   - ingredient: confit duck legs
