@@ -1,6 +1,6 @@
 ---
-title: Dill mustard trout
-slug: dill-mustard-trout
+title: Mustard and dill trout
+slug: mustard-and-dill-trout
 time: 25-30
 ingredients:
   - ingredient: trout (skin on)
