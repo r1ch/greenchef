@@ -20,10 +20,6 @@ jobs:
         run: find pdfs/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r600x600 -sOutputFile="${1%.*}.jpg" "$1"' sh {} \;
       - name: Move mains
         run: mv pdfs/*.jpg mains
-      - name: Crops from PDF to JPG
-        run: find pdfs/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r720 -g600x500 -c "<</Install [-193 -45 translate]>> setpagedevice" -sOutputFile="${1%.*}.jpg" "$1"' sh {} \;
-      - name: Move crops
-        run: mv pdfs/*.jpg crops
       - name: Commit JPG
         id: commit
         run: |
