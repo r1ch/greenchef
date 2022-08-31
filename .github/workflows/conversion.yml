@@ -13,11 +13,13 @@ jobs:
       - name: Install ghostscript
         run: sudo apt install ghostscript
       - name: Thumbs from PDF to JPG
-        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=1 -r100x100 -sOutputFile="${1%.*}-thumb.jpg" "$1"' sh {} \;
+        run: find pdfs/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=1 -r100x100 -sOutputFile="${1%.*}.jpg" "$1"' sh {} \;
+      - name : Move thumbs
+        run: mv pdfs/*.jpg thumbs
       - name: Main from PDF to JPG
-        run: find raw/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r600x600 -sOutputFile="${1%.*}-main.jpg" "$1"' sh {} \;
-      - name: Move JPEGs
-        run: mv raw/*.jpg converted
+        run: find pdfs/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r600x600 -sOutputFile="${1%.*}.jpg" "$1"' sh {} \;
+      - name: Move mains
+        run: mv pdfs/*.jpg mains
       - name: Commit JPG
         id: commit
         run: |
