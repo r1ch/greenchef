@@ -9,16 +9,14 @@
         <body>
                 <div class = "container">
                         <div class="row row-cols-2 row-cols-md-4 g-1">
-                                {% for file in site.static_files %}
-                                {% if file.path contains 'thumb' %}
+                                {% for recipe in site.recipes %}
                                 <div class="col">
-                                        <a href="{{file.path | split : '-' | pop | push: 'main.jpg' | join: '-'}}">
+                                        <a href="{{recipe.url}}">
                                                 <div class="card">
-                                                        <img src="{{file.path}}" class="card-img">
+                                                        <img src="/thumbs/{{recipe.title}}.jpg" class="card-img">
                                                         <div class="card-img-overlay">
-                                                                <h5 class="card-title text-center text-white bg-dark">{{file.basename | split: '-' | pop | pop | pop | join: ' ' }}</h5>
-                                                                {% assign slug = (file.basename | split: "-" | pop | pop | join: "-") %}
-                                                                <p class="card-text"><span class="badge bg-primary">{{site.data.recipes[slug].time}}</span></p>
+                                                                <h5 class="card-title text-center text-white bg-dark">{{recipe.title}}</h5>
+                                                                <p class="card-text"><span class="badge bg-primary">{{recipe.time}}</span></p>
                                                         </div>
                                                 </div><!-- end of card -->
                                         </a>
