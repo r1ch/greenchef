@@ -20,6 +20,8 @@ jobs:
         run: find pdfs/*.pdf -exec sh -c 'gs -dNOPAUSE -dBATCH -sDEVICE=jpeg -sPageList=2 -dJPEGQ=95 -r600x600 -sOutputFile="${1%.*}.jpg" "$1"' sh {} \;
       - name: Move mains
         run: mv pdfs/*.jpg mains
+      - name: Crop mains
+        run: mogrify -path "/crops/" -quality 100% -format jpg "mains/*.jpg" -chop x100 -gravity West
       - name: Commit JPG
         id: commit
         run: |
