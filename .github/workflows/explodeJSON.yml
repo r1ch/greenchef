@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: list
-      run: ls
+      run: ls _data/
     - id: set-matrix
       run: |
-        JSON=$(cat /_data/recipes.json)
+        JSON=$(cat _data/recipes.json)
         echo "::set-output name=matrix::${JSON//'%'/'%25'}"
 
   write:
