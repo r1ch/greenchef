@@ -1,5 +1,8 @@
 name: explode JSON
-on: push
+
+on:
+  workflow_dispatch:
+  
 jobs:
   read:
     runs-on: ubuntu-latest
