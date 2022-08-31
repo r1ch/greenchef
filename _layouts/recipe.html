@@ -11,7 +11,7 @@
                   "image": "/thumbs/{{page.slug}}.jpg",
                   "recipeIngredient": [
                         {% for ingredient in recipe.ingredients %}
-                                "{{ ingredient.count }} {% if ingredient.units }} {{ ingredient.units }} {% endif %} {{ ingredient.ingredient }}",
+                                "{{ ingredient.count }} {% if ingredient.units %} {{ ingredient.units }} {% endif %} {{ ingredient.ingredient }}",
                         {% endfor %}
                   ],
                   "name": "{{ recipe.title }}",
