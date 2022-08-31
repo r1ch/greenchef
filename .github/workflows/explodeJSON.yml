@@ -1,4 +1,4 @@
-name: build
+name: explode JSON
 on: push
 jobs:
   read:
