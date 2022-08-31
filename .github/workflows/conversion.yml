@@ -21,7 +21,7 @@ jobs:
       - name: Move mains
         run: mv pdfs/*.jpg mains
       - name: Crop mains
-        run: mogrify -quality 100% -format jpg -chop x100 -gravity West -path crops/ mains/*.jpg
+        run: mogrify -quality 100% -format jpg -gravity west -chop x400 -path crops/ mains/*.jpg
       - name: Commit JPG
         id: commit
         run: |
