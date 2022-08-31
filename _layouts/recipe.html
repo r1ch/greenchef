@@ -9,10 +9,8 @@
                   "cookTime": "PT{{page.time | split: "-" | shift}}M",
                   "description": "{{page.title}}",
                   "image": "/thumbs/{{page.slug}}.jpg",
-                  "recipeIngredient": [
-                        {% for ingredient in page.ingredients %}
-                                "{{ ingredient.count }} {% if ingredient.units %} {{ ingredient.units }} {% endif %} {{ ingredient.ingredient }}",
-                        {% endfor %}
+                  "recipeIngredient": [{% for ingredient in page.ingredients %}
+                                "{{ ingredient.count }}{% if ingredient.units %} {{ ingredient.units }}{% endif %} {{ ingredient.ingredient }}"{% if forloop.last == false %},{% endif %}{% endfor %}
                   ],
                   "name": "{{ page.title }}",
                   "prepTime": "PT0M"
