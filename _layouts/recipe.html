@@ -2,6 +2,22 @@
 <html lang="en">
         <head>
                 <title>greenchef</title>
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Recipe",
+                  "cookTime": "PT{{page.time | split: "-" | shift}}M",
+                  "description": "{{page.title}}",
+                  "image": "/thumbs/{{page.slug}}.jpg",
+                  "recipeIngredient": [
+                        {% for ingredient in recipe.ingredients %}
+                                "{{ ingredient.count }} {% if ingredient.units }} {{ ingredient.units }} {% endif %} {{ ingredient.ingredient }}",
+                        {% endfor %}
+                  ],
+                  "name": "{{ recipe.title }}",
+                  "prepTime": "PT0M"
+                }
+                </script>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="description" content="Recipe for greenchef.bradi.sh">
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
