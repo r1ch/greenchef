@@ -10,11 +10,11 @@
                   "description": "{{page.title}}",
                   "image": "/thumbs/{{page.slug}}.jpg",
                   "recipeIngredient": [
-                        {% for ingredient in recipe.ingredients %}
+                        {% for ingredient in page.ingredients %}
                                 "{{ ingredient.count }} {% if ingredient.units %} {{ ingredient.units }} {% endif %} {{ ingredient.ingredient }}",
                         {% endfor %}
                   ],
-                  "name": "{{ recipe.title }}",
+                  "name": "{{ page.title }}",
                   "prepTime": "PT0M"
                 }
                 </script>
