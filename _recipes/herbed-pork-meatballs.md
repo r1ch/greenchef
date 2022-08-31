@@ -1,6 +1,6 @@
 ---
 title: Herbed meatballs
-slug: herbed-meatballs
+slug: herbed-pork-meatballs
 time: 25-30
 ingredients:
   - ingredient: garlic
