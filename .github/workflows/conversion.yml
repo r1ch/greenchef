@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Apt update
+        run: sudo apt-get update
       - name: Install ghostscript
         run: sudo apt install ghostscript
       - name: Thumbs from PDF to JPG
